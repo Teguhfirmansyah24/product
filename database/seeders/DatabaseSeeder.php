@@ -27,5 +27,9 @@ class DatabaseSeeder extends Seeder
             'price' => 15000,
             'stock' => 10,
         ]);
+
+        $this->call(
+            BiodataSeeder::class
+        );
     }
 }

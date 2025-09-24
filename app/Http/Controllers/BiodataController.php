@@ -7,59 +7,64 @@ use Illuminate\Http\Request;
 
 class BiodataController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
+    public function biodata() {
+        $biodata = Biodata::all();
+        return view('biodata.biodata', compact('biodata'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+    public function tambah() {
+        $biodata = Biodata::all();
+        return view('biodata.tambah', compact('biodata'));
+    }
+    public function menambahkan(Request $request) {
+        $request->validate([
+            'nama'=>'required',
+            'jk'=>'required',
+            'jurusan'=>'required',
+            'kelas'=>'required',
+            'tempat_lahir'=>'required',
+        ]);
+
+        biodata::create([
+            'nama'=>$request->nama,
+            'kelas'=>$request->kelas,
+            'jenis_kelamin'=>$request->jk,
+            'jurusan'=>$request->jurusan,
+            'tempat_lahir'=>$request->tempat_lahir,
+        ]);
+
+        return redirect('/biodata');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
+    public function edit($id) {
+        $data = biodata::findOrFail($id);
+        return view('biodata.edit', [
+            'data'=>$data,
+        ]);
+    }
+    public function update($id,Request $request) {
+        $request->validate([
+            'nama'=>'required',
+            'jk'=>'required',
+            'jurusan'=>'required',
+            'kelas'=>'required',
+            'tempat_lahir'=>'required',
+        ]);
+
+        biodata::where('id',$id)->update([
+            'nama'=>$request->nama,
+            'kelas'=>$request->kelas,
+            'jenis_kelamin'=>$request->jk,
+            'jurusan'=>$request->jurusan,
+            'tempat_lahir'=>$request->tempat_lahir,
+        ]);
+
+        return redirect('/biodata');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Biodata $biodata)
-    {
-        //
-    }
+    public function hapus($id) {
+        biodata::findOrFail($id)->delete();
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Biodata $biodata)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Biodata $biodata)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Biodata $biodata)
-    {
-        //
+        return redirect('/biodata');
     }
 }
