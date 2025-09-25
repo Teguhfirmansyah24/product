@@ -38,24 +38,24 @@
     <div class="row justify-content-center">
         <div class="col-8">
             <div class="mb-3">
-                <label for="formGroupExampleInput" class="form-label">Nama Lengkap</label>
-                <input type="text" name="nama" class="form-control" id="formGroupExampleInput">
+                <label for="formGroupExampleInput" class="form-label">Nama Lengkap :</label>
+                <input type="text" name="nama" class="form-control" id="formGroupExampleInput" value="{{ $data->nama}}">
             </div>
             <div class="mb-3">
-                <label for="formGroupExampleInput2" class="form-label">Jenis Kelamin</label>
-                <input type="text" name="jk" class="form-control" id="formGroupExampleInput2">
+                <label for="formGroupExampleInput2" class="form-label">Jenis Kelamin :</label>
+                <input type="text" name="jk" class="form-control" id="formGroupExampleInput2" value="{{ $data->jenis_kelamin}}">
             </div>
             <div class="mb-3">
-                <label for="formGroupExampleInput2" class="form-label">Jurusan</label>
-                <input type="text" name="jurusan" class="form-control" id="formGroupExampleInput2">
+                <label for="formGroupExampleInput2" class="form-label">Jurusan :</label>
+                <input type="text" name="jurusan" class="form-control" id="formGroupExampleInput2" value="{{ $data->jurusan}}">
             </div>
             <div class="mb-3">
-                <label for="formGroupExampleInput2" class="form-label">Kelas</label>
-                <input type="text" name="kelas" class="form-control" id="formGroupExampleInput2">
+                <label for="formGroupExampleInput2" class="form-label">Kelas :</label>
+                <input type="text" name="kelas" class="form-control" id="formGroupExampleInput2" value="{{ $data->kelas}}">
             </div>
             <div class="mb-3">
-                <label for="formGroupExampleInput2" class="form-label">Tempat Lahir</label>
-                <input type="text" name="tempat_lahir" class="form-control" id="formGroupExampleInput2">
+                <label for="formGroupExampleInput2" class="form-label">Tempat Lahir :</label>
+                <input type="text" name="tempat_lahir" class="form-control" id="formGroupExampleInput2" value="{{ $data->tempat_lahir}}">
             </div>
             <button type="submit" class="btn btn-primary">Update Data</button>
         </div>
